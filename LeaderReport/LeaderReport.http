@@ -1,0 +1,6 @@
+@LeaderReport_HostAddress = http://localhost:5098
+
+GET {{LeaderReport_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,11 @@
+D:\LaudinoTech\LeaderReport\ClassLibrary\bin\Debug\net8.0\ClassLibrary.deps.json
+D:\LaudinoTech\LeaderReport\ClassLibrary\bin\Debug\net8.0\ClassLibrary.dll
+D:\LaudinoTech\LeaderReport\ClassLibrary\bin\Debug\net8.0\ClassLibrary.pdb
+D:\LaudinoTech\LeaderReport\ClassLibrary\obj\Debug\net8.0\ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\LaudinoTech\LeaderReport\ClassLibrary\obj\Debug\net8.0\ClassLibrary.AssemblyInfoInputs.cache
+D:\LaudinoTech\LeaderReport\ClassLibrary\obj\Debug\net8.0\ClassLibrary.AssemblyInfo.cs
+D:\LaudinoTech\LeaderReport\ClassLibrary\obj\Debug\net8.0\ClassLibrary.csproj.CoreCompileInputs.cache
+D:\LaudinoTech\LeaderReport\ClassLibrary\obj\Debug\net8.0\ClassLibrary.dll
+D:\LaudinoTech\LeaderReport\ClassLibrary\obj\Debug\net8.0\refint\ClassLibrary.dll
+D:\LaudinoTech\LeaderReport\ClassLibrary\obj\Debug\net8.0\ClassLibrary.pdb
+D:\LaudinoTech\LeaderReport\ClassLibrary\obj\Debug\net8.0\ref\ClassLibrary.dll
