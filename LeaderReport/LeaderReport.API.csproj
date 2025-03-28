@@ -22,4 +22,10 @@
     <Folder Include="DTOs\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary\LeaderReport.Domain.csproj" />
+    <ProjectReference Include="..\Infrastructure\LeaderReport.Infrastructure.csproj" />
+    <ProjectReference Include="..\LeaderReport.Application\LeaderReport.Application.csproj" />
+  </ItemGroup>
+
 </Project>
