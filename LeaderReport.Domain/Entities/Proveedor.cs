@@ -12,8 +12,8 @@ public class Proveedor
     public string? Direccion { get; set; }
 
     // Relación con CategoriaProveedor
-    public int CategoriaProveedorId { get; set; }
-    public CategoriaProveedor CategoriaProveedor { get; set; }
+    public int? CategoriaProveedorId { get; set; }
+    public CategoriaProveedor? CategoriaProveedor { get; set; }
 
     // Relación con productos
     public ICollection<Producto>? Productos { get; set; }

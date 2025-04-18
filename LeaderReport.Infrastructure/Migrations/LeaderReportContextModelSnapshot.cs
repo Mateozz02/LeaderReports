@@ -4,19 +4,16 @@ using LeaderReport.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace LeaderReport.Migrations
+namespace LeaderReport.Infrastructure.Migrations
 {
     [DbContext(typeof(LeaderReportContext))]
-    [Migration("20250406210210_decimalProductFix2")]
-    partial class decimalProductFix2
+    partial class LeaderReportContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,11 +54,15 @@ namespace LeaderReport.Migrations
 
                     b.Property<string>("Nombre")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categorias");
+                    b.HasIndex("Nombre")
+                        .IsUnique();
+
+                    b.ToTable("Categorias", (string)null);
                 });
 
             modelBuilder.Entity("LeaderReport.Models.CategoriaProveedor", b =>
@@ -74,11 +75,12 @@ namespace LeaderReport.Migrations
 
                     b.Property<string>("Categoria")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("CategoriaProveedores");
+                    b.ToTable("CategoriaProveedores", (string)null);
                 });
 
             modelBuilder.Entity("LeaderReport.Models.Cliente", b =>
@@ -253,9 +255,12 @@ namespace LeaderReport.Migrations
 
                     b.Property<string>("Nombre")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Nombre")
+                        .IsUnique();
 
                     b.ToTable("Marcas");
                 });
@@ -304,6 +309,9 @@ namespace LeaderReport.Migrations
                     b.Property<string>("Cod_Barra")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Cod_Proveedor")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("MarcaId")
                         .HasColumnType("int");
 
@@ -333,7 +341,7 @@ namespace LeaderReport.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CategoriaProveedorId")
+                    b.Property<int?>("CategoriaProveedorId")
                         .HasColumnType("int");
 
                     b.Property<string>("DNI")
@@ -618,9 +626,7 @@ namespace LeaderReport.Migrations
                 {
                     b.HasOne("LeaderReport.Models.CategoriaProveedor", "CategoriaProveedor")
                         .WithMany("Proveedores")
-                        .HasForeignKey("CategoriaProveedorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoriaProveedorId");
 
                     b.Navigation("CategoriaProveedor");
                 });

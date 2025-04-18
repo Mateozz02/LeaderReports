@@ -6,7 +6,7 @@ public class Producto
 {
     public int Id { get; set; }
     public string? Cod_Barra { get; set; }
-    
+    public string? Cod_Proveedor {get; set;} 
     // Relación con Proveedor
     public int? ProveedorId { get; set; }
     public Proveedor? Proveedor { get; set; }

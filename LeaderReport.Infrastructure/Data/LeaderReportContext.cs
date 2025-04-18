@@ -33,6 +33,7 @@ public class LeaderReportContext : DbContext
     public DbSet<Archivo> Archivos { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
         // Configurar para Factura.Total
         modelBuilder.Entity<Factura>()
             .Property(f => f.Total)
@@ -63,6 +64,36 @@ public class LeaderReportContext : DbContext
         modelBuilder.Entity<Presentacion>()
             .Property(cd => cd.Precio)
             .HasColumnType("decimal(18,2)");
+            
+        modelBuilder.Entity<Categoria>()
+        .HasIndex(c => c.Nombre)
+        .IsUnique();
+
+        modelBuilder.Entity<Marca>()
+        .HasIndex(m => m.Nombre)
+        .IsUnique();
+          
+          modelBuilder.Entity<Categoria>(entity =>
+    {
+        entity.ToTable("Categorias"); // Nombre explícito de la tabla
+        entity.HasKey(e => e.Id);
+        entity.Property(e => e.Nombre)
+            .IsRequired()
+            .HasMaxLength(100);
+        entity.HasIndex(e => e.Nombre)
+            .IsUnique();
+    });
+
+    // Configuración para CategoriaProveedor
+    modelBuilder.Entity<CategoriaProveedor>(entity =>
+    {
+        entity.ToTable("CategoriaProveedores"); // Nombre explícito de la tabla
+        entity.HasKey(e => e.Id);
+        entity.Property(e => e.Categoria)
+            .IsRequired()
+            .HasMaxLength(100);
+    });
     }
+    
 
 }
